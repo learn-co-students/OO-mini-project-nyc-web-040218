@@ -1,4 +1,3 @@
-
 class Recipe
 
   attr_accessor :name
@@ -30,9 +29,27 @@ class Recipe
     end
   end
 
+  def ingredients_by_name
+    ingredients.map do |ingredient|
+      ingredient.name
+    end
+  end
+
   def users
     recipe_cards.map do |ele|
       ele.user
+    end
+  end
+
+  def allergens
+    Allergen.all.select do |ele|
+      self.ingredient.include?(ele.ingredient)
+    end
+  end
+
+  def add_ingredients(ingredients_array)
+    ingredients_array.each do |ingredient|
+      RecipeIngredient.new(self, ingredient)
     end
   end
 

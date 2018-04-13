@@ -1,8 +1,6 @@
 RECIPE
 Build the following methods on the Recipe class
 
-Recipe#allergens should return all of the ingredients in this recipe that are allergens
-Recipe#add_ingredients should take an array of ingredient instances as an argument, and associate each of those ingredients with this recipe
 USER
 Build the following methods on the User class
 
