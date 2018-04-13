@@ -29,6 +29,7 @@ class RecipeCard
     self.all.each do |el|
       hsh[el.rating] = el
     end
+    hsh
   end
 
   def self.recipe_cards_by_date

@@ -13,6 +13,7 @@ class Recipe
     @@all
   end
 
+#
   def self.most_popular
     RecipeCard.recipe_cards_by_rating.max_by {|k,v| k}
   end
@@ -29,7 +30,6 @@ class Recipe
     end
   end
 
-  end
 
   def ingredients
     recipe_ingredients.map do |rec_ing|
@@ -48,16 +48,20 @@ class Recipe
       ele.user
     end
   end
-
+#check again
   def allergens
-    Allergen.all.select do |ele|
-      self.ingredient.include?(ele.ingredient)
+    a = Allergen.all.select do |ele|
+      self.ingredients.include?(ele.ingredient)
+    end
+
+    a.map do |el|
+      el.ingredient
     end
   end
 
   def add_ingredients(ingredients_array)
     ingredients_array.each do |ingredient|
-      RecipeIngredient.new(self, ingredient)
+      RecipeIngredient.new(ingredient, self)
     end
   end
 
