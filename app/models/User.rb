@@ -42,12 +42,13 @@ class User
     @@all
   end
 
-  # BONUS
+  # BONUS NEEDS WORK
   # def safe_recipes
+  #   unsafe = self.allergens
   #   arr = []
-  #   RecipeIngredients.all.each do |ri|
-  #     self.allergens.each do |aly|
-  #       if ri.ingredient_instances.include?(aly)
+  #   unsafe.each do |uh|
+  #     RecipeIngredients.all.each do |ri|
+  #       if ri.ingredient_instances.include?(uh)
   #       else
   #         arr << ri
   #       end
