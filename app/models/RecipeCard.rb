@@ -17,24 +17,8 @@ class RecipeCard
         ALL.push(self)
     end
 
-    def date
-        @date
-    end
-
     def rate
         puts "Rate this Recipe from 1-10!"
         @rating = gets.chomp.to_i
-    end
-
-    def rating
-        @rating
-    end
-
-    def user
-        self.user
-    end
-
-    def recipe
-        self.recipe
     end
 end

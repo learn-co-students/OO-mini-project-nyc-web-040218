@@ -13,13 +13,13 @@ class RecipeIngredient
         ALL.push(self)
     end
 
-    def ingredient
-        self.ingredient
-    end
+    # def ingredient
+    #     @ingredient
+    # end
 
-    def recipe
-        self.recipe
-    end
+    # def recipe
+    #     @recipe
+    # end
 
     # # # ADDITIONAL METHODS # # #
     def self.find_by_ingredient(ingredient)

@@ -18,12 +18,12 @@ class Recipe
         end
     end
 
-    def self.most_popular
-        popular_hash = {}
-        get_recipe_cards.each do |rc|
+    def self.most_popular #not yet tested
+        popular_hash = Hash.new 0
+        RecipeCard.all.each do |rc|
             popular_hash[rc] += 1
         end
-        popular_hash.sort_by{|k,v| v}.last[0]
+        popular_hash.sort_by{|k,v| v}.last[0].recipe
     end
 
     def users
@@ -46,15 +46,13 @@ class Recipe
     end
 
     def add_ingredients(ingredients_array)
-        ingredients_array.map do |ing|
-            new_ri = RecipeIngredient.new(self, ing)
-        end
+        new_ing = ingredients_array + self.get_recipe_ingredients
+        new_ing.uniq!
     end
 
 # # # PLEASE FILL OUT THIS METHOD # # #
-    def allergens
-        # should return all of the ingredients in this recipe that are allergens
-        # You can use 
+    def allergens 
+        Allergen.all.select {|a| ingredients.include?(a.ingredient)}
     end
 # # # PLEASE FILL OUT THIS METHOD # # #
 end
