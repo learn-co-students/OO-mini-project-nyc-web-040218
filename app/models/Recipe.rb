@@ -24,6 +24,12 @@ class Recipe
     end
   end
 
+  def ingredients
+    recipe_cards.map do |card|
+      card.ingredient
+    end
+  end
+
   def users
     recipe_cards.map do |ele|
       ele.user
