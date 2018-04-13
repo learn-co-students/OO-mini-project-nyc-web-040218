@@ -1,0 +1,31 @@
+User has_many :recipeCards
+User has_many :recipes through: :recipeCards
+User has_many :Allergens
+User has_many :ingredients through: :allergens
+
+RecipeCards belong_to :User
+RecipeCards belong_to :Recipe
+
+Recipe has_many :Users through: :recipeCards
+Recipe has_many :recipeCards
+Recipe has_many :ingredients through: recipeIngredients
+Recipe has_many :recipeIngredients
+
+RecipeIngredients belongs_to Recipe
+RecipeIngredients belongs_to Ingredient
+
+Ingredient has_many :Recipes through: :RecipeIngredients
+Ingredient has_many :RecipeIngredients
+Ingredient has_many :allergens
+Ingredient has_many :users through: :allergens
+
+Allergen belongs_to :User
+Allergen belongs_to :Ingredient
+
+
+#First plug One model into it's join, then plug another model into the same join. This creates the Has_Many Through.
+# User has_many :RecipeCards
+# Recipe has_many :RecipeCards
+#Therefore:
+# User has_many recipes through recipeCards
+# Recipe has_many users through recipeCards
