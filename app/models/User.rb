@@ -32,7 +32,8 @@ class User
   end
 
   def most_recent_recipe
-    
+    sorted = RecipeCards.recipe_cards_by_rating.sort_by {|k,v| k}
+    result = sorted[0][1].recipe
   end
 
 end

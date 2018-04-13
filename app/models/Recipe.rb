@@ -19,13 +19,21 @@ class Recipe
 
   def recipe_cards
     RecipeCard.all.select do |rec|
-      rec.recipe = self
+      rec.recipe == self
     end
   end
 
+  def recipe_ingredients
+    RecipeIngredient.all.select do |ing|
+      ing.recipe == self
+    end
+  end
+
+  end
+
   def ingredients
-    recipe_cards.map do |card|
-      card.ingredient
+    recipe_ingredients.map do |rec_ing|
+      rec_ing.ingredient
     end
   end
 

@@ -3,7 +3,7 @@
 class RecipeCard
 
   attr_accessor :rating
-  attr_reader :recipe, :user
+  attr_reader :recipe, :user, :date
   @@all = []
 
   def initialize(recipe, user, rating, date)
@@ -29,6 +29,14 @@ class RecipeCard
     self.all.each do |el|
       hsh[el.rating] = el
     end
+  end
+
+  def self.recipe_cards_by_date
+    hsh = {}
+    self.all.each do |el|
+      hsh[el.date] = el
+    end
+    hsh
   end
 
   def self.recipes
