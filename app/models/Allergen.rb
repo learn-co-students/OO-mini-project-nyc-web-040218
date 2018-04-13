@@ -14,22 +14,16 @@ class Allergen
   end
 
   def self.users
-    self.all.map do |ele|
-      ele.user
-    end
+    self.all.map {|el| el.user}
   end
 
   def self.ingredients
-    self.all.map do |ele|
-      ele.ingredient
-    end
+    self.all.map {|el| el.ingredient}
   end
 
   def self.allergen_by_popularity
     hsh = Hash.new(0)
-    Allergen.all.each do |el|
-      hsh[el.ingredient] += 1
-    end
+    Allergen.all.each {|el| hsh[el.ingredient] += 1}
     hsh
   end
 

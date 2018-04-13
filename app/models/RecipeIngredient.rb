@@ -16,15 +16,11 @@ class RecipeIngredient
   end
 
   def self.recipes
-    self.all.map do |ele|
-      ele.recipe
-    end
+    self.all.map {|el| el.recipe}
   end
 
   def self.ingredients
-    self.all.map do |ele|
-      ele.ingredient
-    end
+    self.all.map {|el| el.ingredient}
   end
 
 end

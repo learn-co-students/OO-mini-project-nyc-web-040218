@@ -19,31 +19,23 @@ class RecipeCard
   end
 
   def self.users
-    self.all.map do |ele|
-      ele.user
-    end
+    self.all.map {|ele| ele.user}
   end
 
   def self.recipe_cards_by_rating
     hsh = {}
-    self.all.each do |el|
-      hsh[el.rating] = el
-    end
+    self.all.each {|el| hsh[el.rating] = el}
     hsh
   end
 
   def self.recipe_cards_by_date
     hsh = {}
-    self.all.each do |el|
-      hsh[el.date] = el
-    end
+    self.all.each {|el| hsh[el.date] = el}
     hsh
   end
 
   def self.recipes
-    self.all.map do |ele|
-      ele.recipe
-    end
+    self.all.map {|ele| ele.recipe}
   end
 
 end

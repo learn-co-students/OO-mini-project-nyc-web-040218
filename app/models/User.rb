@@ -26,39 +26,29 @@ class User
     a.map {|el| el.ingredient}
   end
 
-#check again
-  def top_three_recipes
+  def recipe_cards_by_rating
     hsh = {}
-    all_recipe_cards.map do |el|
-      hsh[el.rating] = el.recipe
-    end
-    hsh = hsh.sort_by {|key, val| key}
-    hsh[0..3].map {|el| el[1]}
-
-
-
-    # sorted = RecipeCard.recipe_cards_by_rating.sort_by {|k,v| k}
-    # result = [sorted[-1][1].recipe, sorted[-2][1].recipe, sorted[-3][1].recipe]
+    all_recipe_cards.map {|el| hsh[el.rating] = el.recipe}
+    hsh
   end
 
-#check again
-  def most_recent_recipe
+  def top_three_recipes
+    a = recipe_cards_by_rating.hsh.sort_by {|key, val| key}
+    a[0..3].map {|el| el[1]}
+  end
+
+  def recipe_cards_by_date
     hsh = {}
-    all_recipe_cards.map do |el|
-      hsh[el.date] = el.recipe
-    end
-    hsh = hsh.sort_by {|key, val| key}
-    hsh[-1]
+    all_recipe_cards.map {|el| hsh[el.date] = el.recipe}
+    hsh
+  end
 
-
-    # sorted = RecipeCard.recipe_cards_by_rating.sort_by {|k,v| k}
-    # result = sorted[0][1].recipe
+  def most_recent_recipe
+    recipe_cards_by_date.sort_by {|key, val| key}[-1]
   end
 
   def all_recipe_cards
-    RecipeCard.all.select do |el|
-      el.user == self
-    end
+    RecipeCard.all.select {|el| el.user == self}
   end
 
   def recipes
