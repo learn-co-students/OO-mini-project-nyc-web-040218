@@ -17,6 +17,4 @@ class RecipeCard
     ALL
   end
 
-  def
-
 end

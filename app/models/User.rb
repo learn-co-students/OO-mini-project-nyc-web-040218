@@ -32,7 +32,7 @@ class User
 
   def allergens
     a = Allergen.all.select { |allergen| allergen.user == self}
-    a.map {|allergen| allergens.allergen}
+    a.map {|allergen| allergen.ingredient}
   end
 
   def top_three_recipes
