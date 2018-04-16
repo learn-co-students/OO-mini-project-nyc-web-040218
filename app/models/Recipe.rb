@@ -14,26 +14,27 @@ class Recipe
   end
 
   def users
-    RecipeCard.all.select { |user|
-      user.recipe == self
-    }
+    RecipeCard.all.select { |user| user.recipe == self}
   end
 
   def self.most_popular
     self.all.sort_by {|recipe| recipe.users.size}.last
   end
 
+  def array_ingredients #helper method
+    RecipeIngredient.all.select {|ingredient| ingredient.recipe == self}
+  end
+
   def ingredients
-    #make this into 2 methods
-    a = RecipeIngredient.all.select {|ingredient|
-      ingredient.recipe == self
-    }
-    a.map {|ingredient| ingredient.ingredient}
+    array_ingredients.map {|ingredient| ingredient.ingredient}
+  end
+
+  def self.all_allergens #helper method
+    Allergen.all.map {|allergen| allergen.ingredient}
   end
 
   def allergens
-    a = Allergen.all.map {|allergen| allergen.ingredient}
-    self.ingredients.select {|allergen| a.include? allergen}
+    self.ingredients.select {|allergen| Recipe.all_allergens.include? allergen}
   end
 
   def add_ingredients(ingredients_array)

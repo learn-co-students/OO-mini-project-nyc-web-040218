@@ -42,18 +42,21 @@ RecipeIngredient.new(surfnturf, steak)
 
 Allergen.new(jesse, shrimp)
 Allergen.new(jesse, bread)
+Allergen.new(jesse, cheese)
 Allergen.new(jesse, chicken)
 Allergen.new(gui, chicken)
 Allergen.new(gui, cheese)
+Allergen.new(ryan, cheese)
 Allergen.new(ryan, parm)
 
-RecipeCard.new(jesse, chick_parm, 4, 20180403)
-RecipeCard.new(ej, chick_parm, 5, 20180404)
-RecipeCard.new(gui, basic_pasta, 5, 20180405)
-RecipeCard.new(gui, garlic_bread, 1, 20180406)
+RecipeCard.new(jesse, chick_parm, 4, 20180401)
 RecipeCard.new(jesse, basic_pasta, 5, 20180407)
 RecipeCard.new(jesse, garlic_bread, 5, 20180408)
 RecipeCard.new(jesse, surfnturf, 2, 20180402)
+RecipeCard.new(jesse, shrimp_scamp, 3, 20180328)
+RecipeCard.new(ej, chick_parm, 5, 20180404)
+RecipeCard.new(gui, basic_pasta, 5, 20180405)
+RecipeCard.new(gui, garlic_bread, 1, 20180406)
 
 
 binding.pry

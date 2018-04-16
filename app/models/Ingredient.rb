@@ -13,9 +13,12 @@ class Ingredient
     ALL
   end
 
+  def array_allergens
+    Allergen.all.select { |allergen| allergen.ingredient == self}
+  end
+
   def allergens
-    a = Allergen.all.select { |allergen| allergen.ingredient == self}
-    a.map {|allergen| allergen.ingredient}
+    array_allergens.map {|allergen| allergen.ingredient}
   end
 
   def self.most_common_allergen
